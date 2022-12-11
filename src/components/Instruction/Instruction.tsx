@@ -8,17 +8,18 @@ import { bookOpenIcon } from '@workday/canvas-system-icons-web';
 export default function Instruction() {
   return (
     <>
-      <Flex
-        backgroundColor={colors.frenchVanilla200}
-        padding='xs'
-        alignItems='center'
-      >
+      <Flex backgroundColor={colors.soap200} padding='xs' alignItems='center'>
         <SystemIcon icon={bookOpenIcon} as='p' marginRight='xxs' />
         <Heading as='h6' size='small' variant='hint'>
           What is Codemasters
         </Heading>
       </Flex>
-      <Box padding='m' height='100%' overflowY='scroll'>
+      <Box
+        padding='m'
+        height='100%'
+        overflowY='scroll'
+        backgroundColor={colors.frenchVanilla100}
+      >
         <Text as='p'>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum, illo
           pariatur earum quam excepturi fugit veniam dolorem ex omnis
