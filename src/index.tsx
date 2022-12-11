@@ -4,6 +4,7 @@ import Routes from './routes';
 import { Global, css } from '@emotion/react';
 import { fonts } from '@workday/canvas-kit-react-fonts';
 import { globalStyles } from './styles';
+import { CodemastersProvider } from './context';
 import 'allotment/dist/style.css';
 
 const root = ReactDOM.createRoot(
@@ -14,7 +15,9 @@ const App = () => {
   return (
     <>
       <Global styles={css(fonts, globalStyles)} />
-      <Routes />
+      <CodemastersProvider>
+        <Routes />
+      </CodemastersProvider>
     </>
   );
 };
