@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { colors } from '@workday/canvas-kit-react/tokens';
 
 export const globalStyles = css`
   html,
@@ -10,6 +11,7 @@ export const globalStyles = css`
     color: #333;
     min-height: 100vh;
     line-height: 1.5;
+    background-color: ${colors.licorice600};
   }
 
   h1,
@@ -21,5 +23,6 @@ export const globalStyles = css`
   p,
   span {
     margin: 0;
+    color: ${colors.blackPepper300};
   }
 `;
