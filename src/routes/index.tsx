@@ -1,8 +1,9 @@
 import { Box } from '@workday/canvas-kit-react/layout';
 import { Allotment } from 'allotment';
-import Header from '../components/Header';
-import Instruction from '../components/Instruction';
-import CodeEditor from '../components/CodeEditor/CodeEditor';
+import Header from 'components/Header';
+import Instruction from 'components/Instruction';
+import CodeEditor from 'components/CodeEditor';
+import Preview from 'components/Preview';
 
 export const Homepage = () => {
   return (
@@ -17,7 +18,7 @@ export const Homepage = () => {
             <CodeEditor />
           </Allotment.Pane>
           <Allotment.Pane>
-            <Box>Here is iframe of preview or perhaps just from state</Box>
+            <Preview />
           </Allotment.Pane>
         </Allotment>
       </Box>

@@ -1,6 +1,6 @@
 import { HStack } from '@workday/canvas-kit-react/layout';
 import { colors } from '@workday/canvas-kit-react/tokens';
-import Logo from '../Logo';
+import Logo from 'components/Logo';
 
 export default function Header() {
   return (
