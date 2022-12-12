@@ -1,3 +1,4 @@
+import { SiJavascript, SiCss3, SiHtml5 } from 'react-icons/si';
 import type { editor } from 'monaco-editor/esm/vs/editor/editor.api';
 
 export const theme = {
@@ -528,14 +529,39 @@ export const theme = {
   encodedTokensColors: [],
 };
 
-export const options = {
+export const files = {
+  html: {
+    name: 'index.html',
+    language: 'html',
+    dispatch: 'SET_HTML' as const,
+    icon: SiHtml5,
+  },
+  css: {
+    name: 'style.css',
+    language: 'css',
+    dispatch: 'SET_CSS' as const,
+    icon: SiCss3,
+  },
+  js: {
+    name: 'script.js',
+    language: 'javascript',
+    dispatch: 'SET_JS' as const,
+    icon: SiJavascript,
+  },
+};
+
+export const options: editor.IStandaloneEditorConstructionOptions = {
   minimap: {
     enabled: false,
   },
   fontFamily: 'Roboto Mono, monospace',
   selectOnLineNumbers: true,
   tabSize: 2,
-  fontSize: 15,
-  lineHeight: 23,
-  wordWrap: 'on' as const,
+  fontSize: 13,
+  lineHeight: 20,
+  padding: {
+    top: 10,
+  },
+  lineNumbersMinChars: 5,
+  wordWrap: 'on',
 };
