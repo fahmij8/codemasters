@@ -1,47 +1,30 @@
-import { useCallback } from 'react';
-import { Box } from '@workday/canvas-kit-react/layout';
-import { Allotment } from 'allotment';
-import Header from 'components/Header';
-import Instruction from 'components/Instruction';
-import CodeEditor from 'components/CodeEditor';
-import Preview from 'components/Preview';
-import { useCodemastersContext } from 'context';
-import Particles from 'react-particles';
-import { loadFull } from 'tsparticles';
-import type { Engine } from 'tsparticles-engine';
-import { particlesOptions } from 'config/tsparticles';
+import { lazy, Suspense } from "react";
+import { Route, Routes } from "react-router";
+import { Grid } from "@workday/canvas-kit-react/layout";
+import { LoadingDots } from "@workday/canvas-kit-react/loading-dots";
 
-export const Homepage = () => {
-  const { taskFinished } = useCodemastersContext();
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine);
-  }, []);
+const SampleLesson = lazy(async () => await import("./SampleLesson"));
+
+export default function AppRoutes() {
+  const Loading = () => {
+    return (
+      <Grid
+        as="div"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        height="100vh"
+      >
+        <LoadingDots />
+      </Grid>
+    );
+  };
 
   return (
-    <>
-      <Header />
-      <Box height='calc(100vh - 60px)'>
-        <Allotment>
-          <Allotment.Pane preferredSize='30%'>
-            <Instruction />
-          </Allotment.Pane>
-          <Allotment.Pane>
-            <CodeEditor />
-          </Allotment.Pane>
-          <Allotment.Pane preferredSize='33%'>
-            <Preview />
-          </Allotment.Pane>
-        </Allotment>
-      </Box>
-      {taskFinished === 6 && (
-        <Particles
-          id='tsparticles'
-          init={particlesInit}
-          options={particlesOptions}
-        />
-      )}
-    </>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/" element={<SampleLesson />} />
+      </Routes>
+    </Suspense>
   );
-};
-
-export default Homepage;
+}

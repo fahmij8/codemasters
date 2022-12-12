@@ -1,15 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Routes from './routes';
-import { Global, css } from '@emotion/react';
-import { fonts } from '@workday/canvas-kit-react-fonts';
-import { globalStyles, appTheme } from './styles';
-import { CodemastersProvider, ToastProvider, ModalProvider } from './context';
-import { CanvasProvider } from '@workday/canvas-kit-react/common';
-import 'allotment/dist/style.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Routes from "./routes";
+import { BrowserRouter } from "react-router-dom";
+import { Global, css } from "@emotion/react";
+import { fonts } from "@workday/canvas-kit-react-fonts";
+import { globalStyles, appTheme } from "./styles";
+import { CodemastersProvider, ToastProvider, ModalProvider } from "./context";
+import { CanvasProvider } from "@workday/canvas-kit-react/common";
+import "allotment/dist/style.css";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 
 const App = () => {
@@ -20,7 +21,9 @@ const App = () => {
         <CodemastersProvider>
           <ToastProvider>
             <ModalProvider>
-              <Routes />
+              <BrowserRouter>
+                <Routes />
+              </BrowserRouter>
             </ModalProvider>
           </ToastProvider>
         </CodemastersProvider>
