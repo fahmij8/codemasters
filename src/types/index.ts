@@ -17,3 +17,10 @@ export type SAMPLE_LESSON_RESPONSE =
       }[];
       key: string;
     };
+
+export type LESSON_RESPONSE = {
+  id: number;
+  title: string;
+  description: string;
+  link: string;
+};

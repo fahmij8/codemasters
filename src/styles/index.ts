@@ -73,6 +73,27 @@ export const globalStyles = css`
     background-repeat: repeat-x, repeat;
   }
 
+  .custom-shape-divider-bottom-1670865399 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .custom-shape-divider-bottom-1670865399 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 117px;
+  }
+
+  .custom-shape-divider-bottom-1670865399 .shape-fill {
+    fill: #ffffff;
+  }
+
   @media (max-width: 768px) {
     .landing-page-container {
       flex-direction: column-reverse;
