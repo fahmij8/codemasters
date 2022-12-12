@@ -14,7 +14,7 @@ const initialContext: StructInitialContext = {
 
 <body>
   <!-- Your HTML here -->
-  
+  <h1>Hello World!</h1>
 
 </body>
 
