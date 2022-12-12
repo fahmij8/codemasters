@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import Routes from './routes';
 import { Global, css } from '@emotion/react';
 import { fonts } from '@workday/canvas-kit-react-fonts';
-import { globalStyles } from './styles';
-import { CodemastersProvider } from './context';
+import { globalStyles, appTheme } from './styles';
+import { CodemastersProvider, ToastProvider, ModalProvider } from './context';
+import { CanvasProvider } from '@workday/canvas-kit-react/common';
 import 'allotment/dist/style.css';
 
 const root = ReactDOM.createRoot(
@@ -15,9 +16,15 @@ const App = () => {
   return (
     <>
       <Global styles={css(fonts, globalStyles)} />
-      <CodemastersProvider>
-        <Routes />
-      </CodemastersProvider>
+      <CanvasProvider theme={appTheme}>
+        <CodemastersProvider>
+          <ToastProvider>
+            <ModalProvider>
+              <Routes />
+            </ModalProvider>
+          </ToastProvider>
+        </CodemastersProvider>
+      </CanvasProvider>
     </>
   );
 };
