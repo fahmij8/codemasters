@@ -9,6 +9,7 @@
   "private": true,
   "dependencies": {
     "@monaco-editor/react": "^4.4.6",
+    "@testing-library/dom": "^8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -16,15 +17,21 @@
     "@types/node": "^16.18.7",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
+    "@workday/canvas-kit-labs-react": "^8.3.0",
     "@workday/canvas-kit-react": "^8.3.0",
     "@workday/canvas-kit-react-fonts": "^8.3.0",
     "@workday/canvas-system-icons-web": "^3.0.6",
     "allotment": "^1.17.0",
     "axios": "^1.2.1",
     "emotion": "^11.0.0",
+    "lottie-react": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1"
+    "react-icons": "^4.7.1",
+    "react-particles": "^2.6.0",
+    "react-router-dom": "^6.4.5",
+    "react-scripts": "5.0.1",
+    "tsparticles": "^2.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
