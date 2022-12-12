@@ -56,6 +56,7 @@ export const globalStyles = css`
   }
 
   .wavey.main {
+    margin-top: 50px;
     flex: 1;
     background-color: #a69867;
   }
