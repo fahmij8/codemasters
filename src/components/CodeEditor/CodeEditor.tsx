@@ -1,25 +1,25 @@
-import { useEffect, useRef, useState } from 'react';
-import Editor from '@monaco-editor/react';
-import { PrimaryButton } from '@workday/canvas-kit-react/button';
-import { Tooltip } from '@workday/canvas-kit-react/tooltip';
-import { Text } from '@workday/canvas-kit-react/text';
-import { HStack } from '@workday/canvas-kit-react/layout';
-import { Tabs } from '@workday/canvas-kit-react/tabs';
-import { GiBroom } from 'react-icons/gi';
-import { files, theme, options } from 'config/editor';
-import { useCodemastersContext } from 'context';
-import useToaster from 'hooks/useToaster';
-import useModal from 'hooks/useModal';
-import validateAnswer from 'helpers/validateAnswer';
-import type { Monaco } from '@monaco-editor/react';
-import type { editor } from 'monaco-editor/esm/vs/editor/editor.api';
+import { useEffect, useRef, useState } from "react";
+import Editor from "@monaco-editor/react";
+import { PrimaryButton } from "@workday/canvas-kit-react/button";
+import { Tooltip } from "@workday/canvas-kit-react/tooltip";
+import { Text } from "@workday/canvas-kit-react/text";
+import { HStack } from "@workday/canvas-kit-react/layout";
+import { Tabs } from "@workday/canvas-kit-react/tabs";
+import { GiBroom } from "react-icons/gi";
+import { files, theme, options } from "config/editor";
+import { useCodemastersContext } from "context";
+import useToaster from "hooks/useToaster";
+import useModal from "hooks/useModal";
+import validateAnswer from "helpers/validateAnswer";
+import type { Monaco } from "@monaco-editor/react";
+import type { editor } from "monaco-editor/esm/vs/editor/editor.api";
 
 export default function CodeEditor() {
   const { code, taskFinished, dispatch } = useCodemastersContext();
   const toast = useToaster();
   const modal = useModal();
-  const [activeEditor, setActiveEditor] = useState<'html' | 'css' | 'js'>(
-    'html'
+  const [activeEditor, setActiveEditor] = useState<"html" | "css" | "js">(
+    "html"
   );
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -32,10 +32,10 @@ export default function CodeEditor() {
     editorRef.current = editor;
 
     // Define custom theme
-    monaco.editor.defineTheme('andromeda', theme);
+    monaco.editor.defineTheme("andromeda", theme);
 
     // Set theme
-    editorRef.current?.updateOptions({ theme: 'andromeda' });
+    editorRef.current?.updateOptions({ theme: "andromeda" });
   };
 
   useEffect(() => {
@@ -57,16 +57,16 @@ export default function CodeEditor() {
 
   return (
     <>
-      <HStack padding='zero' spacing='zero'>
+      <HStack padding="zero" spacing="zero">
         <Tabs>
-          <Tabs.List borderBottom='none' width='100%' overflowX='scroll'>
+          <Tabs.List borderBottom="none" width="100%" overflowX="scroll">
             {Object.entries(files).map(([key, value]) => (
               <Tabs.Item
-                as='button'
-                onClick={() => setActiveEditor(key as 'html' | 'css' | 'js')}
+                as="button"
+                onClick={() => setActiveEditor(key as "html" | "css" | "js")}
                 name={key}
                 key={key}
-                data-id={key === 'html' ? 'initial-tab' : `${key}-tab`}
+                data-id={key === "html" ? "initial-tab" : `${key}-tab`}
               >
                 <value.icon />
                 <Tabs.Item.Text>{value.name}</Tabs.Item.Text>
@@ -76,20 +76,20 @@ export default function CodeEditor() {
         </Tabs>
       </HStack>
       <Editor
-        height='calc(100% - 53px - 56px)'
+        height="calc(100% - 53px - 56px)"
         path={files[activeEditor].name}
         defaultLanguage={files[activeEditor].language}
         defaultValue={code[activeEditor]}
         onMount={handleEditorDidMount}
         options={options}
         onChange={handleEditorChange}
-        loading={<Text color='berrySmoothie600'>Loading...</Text>}
+        loading={<Text color="frenchVanilla100">Loading...</Text>}
       />
-      <HStack padding='xs' spacing='xs'>
-        <Tooltip title='Submit Answer'>
+      <HStack padding="xs" spacing="xs">
+        <Tooltip title="Submit Answer">
           <PrimaryButton
-            size='small'
-            as='button'
+            size="small"
+            as="button"
             onClick={() =>
               validateAnswer(
                 code.full,
@@ -104,18 +104,18 @@ export default function CodeEditor() {
             Submit
           </PrimaryButton>
         </Tooltip>
-        <Tooltip title='Format Code'>
+        <Tooltip title="Format Code">
           <PrimaryButton
-            size='small'
-            borderRadius='circle'
-            padding='zero'
-            width='l'
-            minWidth='zero'
-            as='button'
+            size="small"
+            borderRadius="circle"
+            padding="zero"
+            width="l"
+            minWidth="zero"
+            as="button"
             onClick={() => {
               editorRef.current?.trigger(
-                'editor',
-                'editor.action.formatDocument',
+                "editor",
+                "editor.action.formatDocument",
                 {}
               );
             }}
