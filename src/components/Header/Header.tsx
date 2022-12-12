@@ -1,18 +1,21 @@
-import { HStack } from '@workday/canvas-kit-react/layout';
-import { colors } from '@workday/canvas-kit-react/tokens';
-import Logo from 'components/Logo';
+import { HStack } from "@workday/canvas-kit-react/layout";
+import { colors } from "@workday/canvas-kit-react/tokens";
+import Logo from "components/Logo";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <HStack
       shouldWrapChildren
-      spacing='s'
+      spacing="s"
       backgroundColor={colors.licorice600}
-      border='2px solid'
+      border="2px solid"
       borderBottomColor={colors.licorice100}
-      padding='s'
+      padding="s"
     >
-      <Logo width={190} />
+      <Link to="/">
+        <Logo width={190} />
+      </Link>
     </HStack>
   );
 }
