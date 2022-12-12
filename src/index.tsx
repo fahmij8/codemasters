@@ -5,7 +5,12 @@ import { BrowserRouter } from "react-router-dom";
 import { Global, css } from "@emotion/react";
 import { fonts } from "@workday/canvas-kit-react-fonts";
 import { globalStyles, appTheme } from "./styles";
-import { CodemastersProvider, ToastProvider, ModalProvider } from "./context";
+import {
+  CodemastersProvider,
+  ToastProvider,
+  ModalProvider,
+  AxiosInstanceProvider,
+} from "./context";
 import { CanvasProvider } from "@workday/canvas-kit-react/common";
 import "allotment/dist/style.css";
 
@@ -21,9 +26,16 @@ const App = () => {
         <CodemastersProvider>
           <ToastProvider>
             <ModalProvider>
-              <BrowserRouter>
-                <Routes />
-              </BrowserRouter>
+              <AxiosInstanceProvider
+                config={{
+                  baseURL:
+                    process.env.REACT_APP_API_URL || "http://localhost:3001",
+                }}
+              >
+                <BrowserRouter>
+                  <Routes />
+                </BrowserRouter>
+              </AxiosInstanceProvider>
             </ModalProvider>
           </ToastProvider>
         </CodemastersProvider>

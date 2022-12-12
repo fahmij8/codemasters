@@ -1,6 +1,6 @@
-import { css } from '@emotion/react';
-import { colors } from '@workday/canvas-kit-react/tokens';
-import type { PartialEmotionCanvasTheme } from '@workday/canvas-kit-react';
+import { css } from "@emotion/react";
+import { colors, type } from "@workday/canvas-kit-react/tokens";
+import type { PartialEmotionCanvasTheme } from "@workday/canvas-kit-react";
 
 export const globalStyles = css`
   html,
@@ -26,8 +26,17 @@ export const globalStyles = css`
     margin: 0;
   }
 
-  div[role='tablist']::after {
+  div[role="tablist"]::after {
     background: none;
+  }
+
+  code {
+    ${type.levels.subtext.large.fontSize};
+    padding: 0.2rem 0.4rem;
+    margin: 0;
+    background-color: rgba(27, 31, 35, 0.05);
+    border-radius: 3px;
+    color: ${colors.blueberry400};
   }
 `;
 
