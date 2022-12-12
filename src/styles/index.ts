@@ -38,6 +38,65 @@ export const globalStyles = css`
     border-radius: 3px;
     color: ${colors.blueberry400};
   }
+
+  .landing-page-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .landing-page-container h1 {
+    line-height: 1.2;
+  }
+
+  .landing-page-animation {
+    width: 30vw;
+  }
+
+  .wavey.main {
+    flex: 1;
+    background-color: #a69867;
+  }
+
+  .wavey {
+    margin-top: -5px;
+    background-color: #a69867;
+    background-image: url("https://daks2k3a4ib2z.cloudfront.net/570019496d89fd540a95a091/57363e99807049795e6196ec_wavy.png"),
+      -webkit-linear-gradient(270deg, rgba(0, 0, 0, 0.2), transparent 15%);
+    background-image: url("https://daks2k3a4ib2z.cloudfront.net/570019496d89fd540a95a091/57363e99807049795e6196ec_wavy.png"),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.2), transparent 15%);
+    background-position: 50% 0px, 0px 0px;
+    background-size: contain, auto;
+    background-repeat: repeat-x, repeat;
+  }
+
+  @media (max-width: 768px) {
+    .landing-page-container {
+      flex-direction: column-reverse;
+      padding-top: 0;
+    }
+
+    .landing-page-container h1 {
+      font-size: 2rem;
+    }
+
+    .landing-page-animation {
+      width: 300px;
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .landing-page-container h1 {
+      font-size: 1.5rem;
+    }
+
+    .landing-page-animation {
+      width: 100%;
+    }
+  }
 `;
 
 export const appTheme: PartialEmotionCanvasTheme = {
