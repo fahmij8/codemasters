@@ -52,7 +52,7 @@ export default function CodeEditor() {
         type: files[activeEditor].dispatch,
         payload: value,
       });
-    }, 2000);
+    }, 1000);
   };
 
   return (

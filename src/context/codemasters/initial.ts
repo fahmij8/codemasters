@@ -1,4 +1,4 @@
-import type { StructInitialContext } from 'types';
+import type { StructInitialContext } from "types";
 
 const initialContext: StructInitialContext = {
   code: {
@@ -14,9 +14,8 @@ const initialContext: StructInitialContext = {
 
 <body>
   <!-- Your HTML here -->
-  <h1>Heading 1</h1>
-  <h2 id="heading-2">Heading 2</h2>
-  <h3>Heading 3</h3>
+  
+
 </body>
 
 </html>`,
@@ -26,17 +25,16 @@ const initialContext: StructInitialContext = {
   padding: 0;
 }
 
-h1 {
-  color: rgb(255, 0, 0);
-}
-
 /* Your CSS here */
+
+
 `,
     js: `console.log("Hello World!");
 // Feel free to remove the line above
 // Your JS here
-document.querySelector("#heading-2").innerText = "Bye World!";`,
-    full: '',
+
+`,
+    full: "",
   },
   taskFinished: 0,
 };

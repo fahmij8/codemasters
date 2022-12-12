@@ -52,8 +52,6 @@ export default function Instruction() {
     );
   }
 
-  console.log(responses);
-
   return (
     <Box
       backgroundColor={colors.frenchVanilla100}
