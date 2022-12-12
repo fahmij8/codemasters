@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { colors } from '@workday/canvas-kit-react/tokens';
+import type { PartialEmotionCanvasTheme } from '@workday/canvas-kit-react';
 
 export const globalStyles = css`
   html,
@@ -23,6 +24,34 @@ export const globalStyles = css`
   p,
   span {
     margin: 0;
-    color: ${colors.blackPepper300};
+  }
+
+  div[role='tablist']::after {
+    background: none;
   }
 `;
+
+export const appTheme: PartialEmotionCanvasTheme = {
+  canvas: {
+    palette: {
+      primary: {
+        main: colors.cantaloupe400,
+      },
+      alert: {
+        main: colors.sourLemon400,
+      },
+      success: {
+        main: colors.greenApple400,
+      },
+      error: {
+        main: colors.cinnamon500,
+      },
+      neutral: {
+        main: colors.frenchVanilla600,
+      },
+      common: {
+        focusOutline: colors.cantaloupe400,
+      },
+    },
+  },
+};
