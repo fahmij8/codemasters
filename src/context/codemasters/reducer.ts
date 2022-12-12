@@ -22,6 +22,17 @@ const caseReducer = {
       js: payload,
     },
   }),
+  SET_FULL: (state: StructInitialContext, payload: string) => ({
+    ...state,
+    code: {
+      ...state.code,
+      full: payload,
+    },
+  }),
+  SET_TASK: (state: StructInitialContext, payload: string) => ({
+    ...state,
+    taskFinished: Number(payload),
+  }),
 };
 
 const reducer = (state: StructInitialContext, action: ActionContext) => {
