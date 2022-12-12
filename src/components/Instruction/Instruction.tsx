@@ -60,7 +60,7 @@ export default function Instruction() {
     >
       {responses &&
         responses.map((response) => (
-          <Fragment key={`${response.title}-${new Date().getTime()}`}>
+          <Fragment key={response.key}>
             <Flex
               backgroundColor={colors.soap200}
               padding="xs"
@@ -80,7 +80,7 @@ export default function Instruction() {
               <Box padding="m">
                 {response.content.map((content) => (
                   <Text
-                    key={`${content}-${new Date().getTime()}`}
+                    key={content}
                     as="p"
                     marginBottom={space.s}
                     dangerouslySetInnerHTML={{ __html: content }}
@@ -91,9 +91,7 @@ export default function Instruction() {
             {response.type === "instruction" && (
               <Box padding="m">
                 {response.content.map((content) => (
-                  <Fragment
-                    key={`${content.instruction}-${new Date().getTime()}`}
-                  >
+                  <Fragment key={content.key}>
                     <Flex marginBottom={space.xs}>
                       <Flex.Item marginRight="xs">
                         {taskFinished >= content.stage ? (
